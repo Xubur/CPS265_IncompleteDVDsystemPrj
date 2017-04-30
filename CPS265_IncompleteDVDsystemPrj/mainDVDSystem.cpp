@@ -17,6 +17,7 @@ int main()
 {
 	
 	int choice;
+	CustomerType cust;
 	
 	displayMenu();
 	cout << "Enter choice: ";
@@ -88,5 +89,11 @@ void displayMenu()
 	cout << "7: Print a list of customers." << endl;
 	cout << "8: Print a list of DVDs rented by a customer." << endl;
 	cout << "9: To exit" << endl;
+}
+
+void createCustomerList(ifstream& infile,
+	CustomerBTreeType& custList) {
+
+
 }
 
