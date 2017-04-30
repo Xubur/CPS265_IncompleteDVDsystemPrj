@@ -18,6 +18,10 @@ int main()
 	
 	int choice;
 	CustomerType cust;
+	CustomerBTreeType custList;
+	ifstream custinfile;
+	ifstream dvdinfile;
+	string dvdFileName = "dvdDat.txt";
 	
 	displayMenu();
 	cout << "Enter choice: ";
@@ -56,6 +60,7 @@ int main()
 			
 			break;
 		case 8:
+			cout << "Enter customer id: " << endl;
 			
 			break;
 		default:
@@ -94,6 +99,38 @@ void displayMenu()
 void createCustomerList(ifstream& infile,
 	CustomerBTreeType& custList) {
 
+	string custFileName = "custDat.txt";
+	string temp;
+	int i = 0;
 
+	infile.open(custFileName.c_str());
+	if (infile.fail()) {
+		cout << "Unable to open the file: custDat.txt" << endl;
+		exit(1);
+	}
+	while (infile.peek() != EOF) {
+
+		string lastname;
+		string firstname;
+		int accnum;
+
+		getline(infile, temp);
+		while (temp[i] != ' ') {
+			firstname[i] = temp[i];
+			i++;
+		}
+		i++;
+		while (temp[i] != ' ') {
+			lastname[i] = temp[i];
+			i++;
+		}
+		i++;
+		accnum = temp[i];
+
+		CustomerType tempcust(firstname, lastname, accnum);
+		custList.insert(tempcust);
+	}
 }
+
+
 

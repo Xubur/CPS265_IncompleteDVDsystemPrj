@@ -17,8 +17,8 @@ CustomerType::CustomerType(string first, string last, int acctNo) {
 };
 
 void CustomerType::print() {
-	cout << custAcctNo << " " << PersonType::getFirstName() << " " << PersonType::getLastName << " Number of rentals: "
-		<< getNoOfRentals << endl;
+	cout << custAcctNo << " " << PersonType::getFirstName() << " " << PersonType::getLastName() << " Number of rentals: "
+		<< getNoOfRentals() << endl;
 };
 
 void CustomerType::setCustInfo(string first, string last, int acctNo) {
@@ -27,11 +27,11 @@ void CustomerType::setCustInfo(string first, string last, int acctNo) {
 };
 
 bool CustomerType::rentDVD(string name) {
-
+	return rentedDVDTree.insert(name);
 };
 
 bool CustomerType::returnDVD(string name) {
-
+	return rentedDVDTree.deleteNode(name);
 };
 
 int CustomerType::getNoOfRentals() {
@@ -43,7 +43,7 @@ int CustomerType::getAcctNo() {
 };
 
 void CustomerType::printRentedDVD() {
-
+	rentedDVDTree.inorderTraversal();
 };
 
 bool CustomerType::operator==(const CustomerType& right) const {
