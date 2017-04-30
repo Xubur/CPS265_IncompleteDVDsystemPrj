@@ -21,7 +21,7 @@ Touch Stone Pictures
 14
 Jerry MacGuire
 Tom Cruise
-Renne Zellwegger
+Renee Zellwegger
 Brooks
 Crowe
 United Artists
@@ -33,4 +33,3 @@ Johnson
 Levinson
 United Artists
 2
-TestEdit
