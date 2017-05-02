@@ -19,9 +19,12 @@ int main()
 	int choice;
 	CustomerType cust;
 	CustomerBTreeType custList;
+	DVDBinaryTree dvdList;
 	ifstream custinfile;
 	ifstream dvdinfile;
-	string dvdFileName = "dvdDat.txt";
+	string dvdTitle;
+	string dummy;
+	int custID;
 	
 	displayMenu();
 	cout << "Enter choice: ";
@@ -34,34 +37,50 @@ int main()
 		cout << " Choice: " << choice << endl;
 		switch (choice)
 		{
-		case 1:
+		case 1:   //check if the dvd is carried
 			cout << "Enter the title: ";
-			
+			getline(cin, dvdTitle);
+			if (dvdList.dvdSearch(dvdTitle)) {
+				cout << "That DVD is carried." << endl;
+			}
+			else {
+				cout << "That DVD is not carried." << endl;
+			}
 			break;
-		case 2:
+		case 2:   //check out a dvd
 			cout << "Enter the title: ";
-			
+			getline(cin, dvdTitle);
+			dvdList.dvdCheckOut(dvdTitle);
 			break;
-		case 3:
+		case 3:    //check in a dvd
 			cout << "Enter the title: ";
-			
+			getline(cin, dvdTitle);
+			dvdList.dvdCheckIn(dvdTitle);
 			break;
-		case 4:
+		case 4:    //check if the dvd is currently available
 			cout << "Enter the title: ";
+			getline(cin, dvdTitle);
+			if (dvdList.isDVDAvailable(dvdTitle)) {
+				cout << "That DVD is currently available." << endl;
+			}
+			else {
+				cout << "That DVD is not currently available." << endl;
+			}
+			break;
+		case 5:    //print only the titles of all dvds
 			
 			break;
-		case 5:
+		case 6:   //print a list of all dvds
 			
 			break;
-		case 6:
-			
+		case 7:  //print a list of customers
+
 			break;
-		case 7:
-			
-			break;
-		case 8:
+		case 8:  //print a list of the dvds rented by a customer
 			cout << "Enter customer id: " << endl;
-			
+			cin >> custID;
+			getline(cin, dummy);
+
 			break;
 		default:
 			cout << "Invalid selection." << endl;
@@ -100,35 +119,17 @@ void createCustomerList(ifstream& infile,
 	CustomerBTreeType& custList) {
 
 	string custFileName = "custDat.txt";
-	string temp;
-	int i = 0;
+	string lastname;
+	string firstname;
+	int accnum;
 
-	infile.open(custFileName.c_str());
-	if (infile.fail()) {
-		cout << "Unable to open the file: custDat.txt" << endl;
-		exit(1);
-	}
-	while (infile.peek() != EOF) {
+	infile >> firstname >> lastname >> accnum;
+	while (!infile.eof()) {
 
-		string lastname;
-		string firstname;
-		int accnum;
-
-		getline(infile, temp);
-		while (temp[i] != ' ') {
-			firstname[i] = temp[i];
-			i++;
-		}
-		i++;
-		while (temp[i] != ' ') {
-			lastname[i] = temp[i];
-			i++;
-		}
-		i++;
-		accnum = temp[i];
 
 		CustomerType tempcust(firstname, lastname, accnum);
 		custList.insert(tempcust);
+		infile >> firstname >> lastname >> accnum;
 	}
 }
 

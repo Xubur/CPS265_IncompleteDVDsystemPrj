@@ -16,6 +16,7 @@ DvdType::DvdType(
 	setDVDInfo(title, star1, star2, producer, director, productionCo, setInStock);
 }
 
+
 int DvdType::getNoOfCopiesInStock() const
 {
 	return copiesInStock;
