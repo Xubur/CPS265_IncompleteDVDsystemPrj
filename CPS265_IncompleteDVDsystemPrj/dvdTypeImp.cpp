@@ -67,6 +67,73 @@ void DvdType::printInfo() const
 	cout << "Production Company: " << movieProductionCo << endl;
 	cout << "Copies in stock: " << copiesInStock << endl;
 }
+
+bool DvdType::operator==(const DvdType& otherDvd) const
+{
+	if (otherDvd.getTitle() != getTitle())
+		return false;
+	if (otherDvd.movieStar1 != movieStar1)
+		return false;
+	if (otherDvd.movieStar2 != movieStar2)
+		return false;
+	if (otherDvd.movieProducer != movieProducer)
+		return false;
+	if (otherDvd.movieDirector != movieDirector)
+		return false;
+	if (otherDvd.movieProductionCo != movieProductionCo)
+		return false;
+	return true;
+}
+
+bool DvdType::operator!=(const DvdType& otherDvd) const
+{
+	if (otherDvd.getTitle() == getTitle())
+		return false;
+	if (otherDvd.movieStar1 == movieStar1)
+		return false;
+	if (otherDvd.movieStar2 == movieStar2)
+		return false;
+	if (otherDvd.movieProducer == movieProducer)
+		return false;
+	if (otherDvd.movieDirector == movieDirector)
+		return false;
+	if (otherDvd.movieProductionCo == movieProductionCo)
+		return false;
+	return true;
+}
+
+bool DvdType::operator<(const DvdType& otherDvd) const
+{
+	if (otherDvd.getTitle() > dvdTitle)
+		return true;
+	else
+		return false;
+}
+
+bool DvdType::operator<=(const DvdType& otherDvd) const
+{
+	if (otherDvd.getTitle() >= dvdTitle)
+		return true;
+	else
+		return false;
+}
+
+bool DvdType::operator>(const DvdType& otherDvd) const
+{
+	if (otherDvd.getTitle() < dvdTitle)
+		return true;
+	else
+		return false;
+}
+
+bool DvdType::operator>=(const DvdType& otherDvd) const
+{
+	if (otherDvd.getTitle() <= dvdTitle)
+		return true;
+	else
+		return false;
+}
+
 ostream& operator<< (ostream& osObject, const DvdType& dvd)
 {
 	osObject << endl;
