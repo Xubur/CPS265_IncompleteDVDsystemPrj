@@ -19,9 +19,12 @@ int main()
 	int choice;
 	CustomerType cust;
 	CustomerBTreeType custList;
+	DVDBinaryTree dvdList;
 	ifstream custinfile;
 	ifstream dvdinfile;
-	string dvdFileName = "dvdDat.txt";
+	string dvdTitle;
+	string dummy;
+	int custID;
 	
 	displayMenu();
 	cout << "Enter choice: ";
@@ -36,19 +39,19 @@ int main()
 		{
 		case 1:
 			cout << "Enter the title: ";
-			
+			getline(cin, dvdTitle);
 			break;
 		case 2:
 			cout << "Enter the title: ";
-			
+			getline(cin, dvdTitle);
 			break;
 		case 3:
 			cout << "Enter the title: ";
-			
+			getline(cin, dvdTitle);
 			break;
 		case 4:
 			cout << "Enter the title: ";
-			
+			getline(cin, dvdTitle);
 			break;
 		case 5:
 			
@@ -61,7 +64,9 @@ int main()
 			break;
 		case 8:
 			cout << "Enter customer id: " << endl;
-			
+			cin >> custID;
+			getline(cin, dummy);
+
 			break;
 		default:
 			cout << "Invalid selection." << endl;
@@ -103,12 +108,7 @@ void createCustomerList(ifstream& infile,
 	string temp;
 	int i = 0;
 
-	infile.open(custFileName.c_str());
-	if (infile.fail()) {
-		cout << "Unable to open the file: custDat.txt" << endl;
-		exit(1);
-	}
-	while (infile.peek() != EOF) {
+	while (!infile.eof()) {
 
 		string lastname;
 		string firstname;
