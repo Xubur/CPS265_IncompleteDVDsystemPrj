@@ -12,7 +12,11 @@ using namespace std;
 class CustomerBTreeType:public BSearchTreeType<CustomerType>
 {
 public:
-	bool custSearchId(int id);
+	bool custSearchId(int id) {
+		CustomerType tempCustomer("", "", id);
+		return search(tempCustomer);
+		}
+
 	bool custReturnDVD(int id, string title);
 	bool custRentDVD(int id, string title);
 	int  custGetNoOfRentals(int id);

@@ -37,32 +37,46 @@ int main()
 		cout << " Choice: " << choice << endl;
 		switch (choice)
 		{
-		case 1:
+		case 1:   //check if the dvd is carried
 			cout << "Enter the title: ";
 			getline(cin, dvdTitle);
+			if (dvdList.dvdSearch(dvdTitle)) {
+				cout << "That DVD is carried." << endl;
+			}
+			else {
+				cout << "That DVD is not carried." << endl;
+			}
 			break;
-		case 2:
+		case 2:   //check out a dvd
 			cout << "Enter the title: ";
 			getline(cin, dvdTitle);
+			dvdList.dvdCheckOut(dvdTitle);
 			break;
-		case 3:
+		case 3:    //check in a dvd
 			cout << "Enter the title: ";
 			getline(cin, dvdTitle);
+			dvdList.dvdCheckIn(dvdTitle);
 			break;
-		case 4:
+		case 4:    //check if the dvd is currently available
 			cout << "Enter the title: ";
 			getline(cin, dvdTitle);
+			if (dvdList.isDVDAvailable(dvdTitle)) {
+				cout << "That DVD is currently available." << endl;
+			}
+			else {
+				cout << "That DVD is not currently available." << endl;
+			}
 			break;
-		case 5:
+		case 5:    //print only the titles of all dvds
 			
 			break;
-		case 6:
+		case 6:   //print a list of all dvds
 			
 			break;
-		case 7:
-			
+		case 7:  //print a list of customers
+
 			break;
-		case 8:
+		case 8:  //print a list of the dvds rented by a customer
 			cout << "Enter customer id: " << endl;
 			cin >> custID;
 			getline(cin, dummy);
