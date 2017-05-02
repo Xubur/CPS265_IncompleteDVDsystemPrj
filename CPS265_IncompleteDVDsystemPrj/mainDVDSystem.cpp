@@ -119,30 +119,17 @@ void createCustomerList(ifstream& infile,
 	CustomerBTreeType& custList) {
 
 	string custFileName = "custDat.txt";
-	string temp;
-	int i = 0;
+	string lastname;
+	string firstname;
+	int accnum;
 
+	infile >> firstname >> lastname >> accnum;
 	while (!infile.eof()) {
 
-		string lastname;
-		string firstname;
-		int accnum;
-
-		getline(infile, temp);
-		while (temp[i] != ' ') {
-			firstname[i] = temp[i];
-			i++;
-		}
-		i++;
-		while (temp[i] != ' ') {
-			lastname[i] = temp[i];
-			i++;
-		}
-		i++;
-		accnum = temp[i];
 
 		CustomerType tempcust(firstname, lastname, accnum);
 		custList.insert(tempcust);
+		infile >> firstname >> lastname >> accnum;
 	}
 }
 

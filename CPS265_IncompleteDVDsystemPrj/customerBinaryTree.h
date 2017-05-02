@@ -13,11 +13,15 @@ class CustomerBTreeType:public BSearchTreeType<CustomerType>
 {
 public:
 	bool custSearchId(int id) {
-		CustomerType tempCustomer("", "", id);
-		return search(tempCustomer);
-		}
+		nodeType<CustomerType>;
+		bool found;
+		
 
-	bool custReturnDVD(int id, string title);
+		}
+	bool custReturnDVD(int id, string title) {
+
+
+	   }
 	bool custRentDVD(int id, string title);
 	int  custGetNoOfRentals(int id);
 
