@@ -74,7 +74,7 @@ int main()
 			
 			break;
 		case 7:  //print a list of customers
-
+			custList.inorderTraversal();
 			break;
 		case 8:  //print a list of the dvds rented by a customer
 			cout << "Enter customer id: " << endl;
@@ -116,7 +116,7 @@ void displayMenu()
 }
 
 void createCustomerList(ifstream& infile,
-	CustomerBTreeType& custList) {
+	CustomerBTreeType& custList) {                      //unfinished
 
 	string custFileName = "custDat.txt";
 	string lastname;
@@ -131,6 +131,38 @@ void createCustomerList(ifstream& infile,
 		custList.insert(tempcust);
 		infile >> firstname >> lastname >> accnum;
 	}
+}
+
+void createDVDList(ifstream& infile,
+	DVDBinaryTree& dvdList) {                      //also unfinished
+	string dvdFileName = "dvdDat.txt";
+	string dummy;
+	string title;
+	string star1;
+	string star2;
+	string producer;
+	string director;
+	string productionCo;
+	int stock;
+
+
+	while (!infile.eof()) {
+		getline(cin, title);
+		getline(cin, star1);
+		getline(cin, star2);
+		getline(cin, producer);
+		getline(cin, director);
+		getline(cin, productionCo);
+		infile >> stock;
+		getline(cin, dummy);
+
+		DvdType tempDVD(title, star1, star2, producer, director, productionCo, stock);
+		dvdList.insert(tempDVD);
+	}
+
+
+
+
 }
 
 

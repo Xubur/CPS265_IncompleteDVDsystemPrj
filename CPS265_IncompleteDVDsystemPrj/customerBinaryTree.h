@@ -12,12 +12,15 @@ using namespace std;
 class CustomerBTreeType:public BSearchTreeType<CustomerType>
 {
 public:
-	bool custSearchId(int id) {
-		nodeType<CustomerType>;
+	bool custSearchId(int id) {          //improvement still needed
+		nodeType<CustomerType> *location;
 		bool found;
-		
+
+		found = searchCust(id, found, location);
+		return found;
 
 		}
+	
 	bool custReturnDVD(int id, string title) {
 
 
@@ -29,7 +32,10 @@ public:
 
 private:
 	bool searchCust(int id, bool& found,
-					nodeType<CustomerType>* &current);
+		nodeType<CustomerType>* &current) {
+
+
+	}
 
 	void inorderRentedDVDInfo(nodeType<CustomerType>* p);
 	// Function to do an inorder traversal and print
