@@ -84,8 +84,11 @@ bool BSearchTreeType<elemType>::insert
     newNode->lLink = nullptr;
     newNode->rLink = nullptr;
 
-    if (root == nullptr)
-        root = newNode;
+	if (root == nullptr)
+	{
+		root = newNode;
+		// I think this produces the issue.
+	}
     else
     {
         current = root;
