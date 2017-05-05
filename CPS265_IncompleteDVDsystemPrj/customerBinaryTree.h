@@ -13,33 +13,80 @@ class CustomerBTreeType:public BSearchTreeType<CustomerType>
 {
 public:
 	bool custSearchId(int id) {          //improvement still needed
-		nodeType<CustomerType> *location;
-		bool found;
+		nodeType<CustomerType> *current;
+		bool found = false;
 
-		found = searchCust(id, found, location);
+		searchCust(id, found, current);
 		return found;
 
 		}
 	
 	bool custReturnDVD(int id, string title) {
+		nodeType<CustomerType> *current;
+		bool found = false;
 
+		if (searchCust(id, found, current)) {
+			current->info.returnDVD(title);
+		}
+		return found;
 
 	   }
-	bool custRentDVD(int id, string title);
-	int  custGetNoOfRentals(int id);
+	bool custRentDVD(int id, string title) {
+		nodeType<CustomerType> *current;
+		bool found = false;
 
-	void rentedDVDsInfo();
+		if (searchCust(id, found, current)) {
+			current->info.rentDVD(title);
+		}
+		return found;
+	}
+	int  custGetNoOfRentals(int id) {
+		nodeType<CustomerType> *current;
+		bool found = false;
+		int rentals = 0;
+
+		if (searchCust(id, found, current)) {
+			
+		}
+	}
+
+	void rentedDVDsInfo() {
+	
+	}
 
 private:
 	bool searchCust(int id, bool& found,
 		nodeType<CustomerType>* &current) {
+		nodeType<CustomerType> *current;
+		bool found = false;
 
+		if (root == nullptr)
+			cout << "Cannot search an empty tree." << endl;
+		else
+		{
+			current = root;
+
+			while (current != nullptr && !found)
+			{
+				if (current->info.getAcctNo == id)
+					found = true;
+				else if (current->info.getAcctNo > id)
+					current = current->lLink;
+				else
+					current = current->rLink;
+			}//end while
+		}//end else
+
+		return found;
 
 	}
 
-	void inorderRentedDVDInfo(nodeType<CustomerType>* p);
-	// Function to do an inorder traversal and print
-	// rented DVD information
+	void inorderRentedDVDInfo(nodeType<CustomerType>* p) {
+		// Function to do an inorder traversal and print
+		// rented DVD information
+
+	}
+
 
 };
  
