@@ -59,25 +59,9 @@ public:
 private:
 	bool searchCust(int id, bool& found,
 		nodeType<CustomerType>* &current) {
-		nodeType<CustomerType> *current;
-		bool found = false;
 
-		if (root == nullptr)
-			cout << "Cannot search an empty tree." << endl;
-		else
-		{
-			current = root;
-
-			while (current != nullptr && !found)
-			{
-				if (current->info.getAcctNo == id)
-					found = true;
-				else if (current->info.getAcctNo > id)
-					current = current->lLink;
-				else
-					current = current->rLink;
-			}//end while
-		}//end else
+		CustomerType temp("", "", id);
+		found = search(temp);
 
 		return found;
 

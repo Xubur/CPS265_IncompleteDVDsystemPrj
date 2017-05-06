@@ -21,10 +21,27 @@ int main()
 	CustomerBTreeType custList;
 	DvdBinaryTree dvdList;
 	ifstream custinfile;
+	string custFileName = "custDat.txt";
 	ifstream dvdinfile;
+	string dvdFileName = "dvdDat.txt";
 	string dvdTitle;
 	string dummy;
 	int custID;
+
+	custinfile.open(custFileName.c_str());
+	if (custinfile.fail()) {
+		cout << "Unable to open the file: custDat.txt" << endl;
+		exit(1);
+	}
+
+	dvdinfile.open(dvdFileName.c_str());
+	if (dvdinfile.fail()) {
+		cout << "Unable to open the file: dvdDat.txt" << endl;
+		exit(1);
+	}
+
+	//createDVDList(dvdinfile, dvdList);                   //infinite loop in one of these two
+	//createCustomerList(custinfile, custList);
 	
 	displayMenu();
 	cout << "Enter choice: ";
@@ -76,6 +93,7 @@ int main()
 			break;
 		case 7:  //print a list of customers
 			custList.inorderTraversal();
+
 			break;
 		case 8:  //print a list of the dvds rented by a customer
 			cout << "Enter customer id: " << endl;
@@ -119,13 +137,13 @@ void displayMenu()
 void createCustomerList(ifstream& infile,
 	CustomerBTreeType& custList) {                      //unfinished
 
-	string custFileName = "custDat.txt";
+
 	string lastname;
 	string firstname;
 	int accnum;
 
 	infile >> firstname >> lastname >> accnum;
-	while (!infile.eof()) {
+	while (infile.peek() != EOF) {
 
 
 		CustomerType tempcust(firstname, lastname, accnum);
@@ -136,7 +154,7 @@ void createCustomerList(ifstream& infile,
 
 void createDVDList(ifstream& infile,
 	DvdBinaryTree& dvdList) {                      //also unfinished
-	string dvdFileName = "dvdDat.txt";
+
 	string dummy;
 	string title;
 	string star1;
@@ -147,7 +165,7 @@ void createDVDList(ifstream& infile,
 	int stock;
 
 
-	while (!infile.eof()) {
+	while (infile.peek() != EOF) {
 		getline(cin, title);
 		getline(cin, star1);
 		getline(cin, star2);
