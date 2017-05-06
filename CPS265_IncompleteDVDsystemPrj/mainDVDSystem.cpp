@@ -40,7 +40,7 @@ int main()
 		exit(1);
 	}
 
-	//createDVDList(dvdinfile, dvdList);                   //infinite loop in this one
+	createDVDList(dvdinfile, dvdList);                   
 	createCustomerList(custinfile, custList);
 	
 	displayMenu();
@@ -88,7 +88,7 @@ int main()
 
 			
 			break;
-		case 6:   //print a list of all dvds
+		case 6:   //print a list of all dvds -- Working
 			dvdList.inorderTraversal();
 			break;
 		case 7:  //print a list of customers -- Working
@@ -142,7 +142,7 @@ void displayMenu()
 }
 
 void createCustomerList(ifstream& infile,
-	CustomerBTreeType& custList) {                      //unfinished
+	CustomerBTreeType& custList) {                      //Working
 
 
 	string lastname;
@@ -162,7 +162,7 @@ void createCustomerList(ifstream& infile,
 }
 
 void createDVDList(ifstream& infile,
-	DvdBinaryTree& dvdList) {                      //also unfinished
+	DvdBinaryTree& dvdList) {                      //Working
 
 	string dummy;
 	string title;
@@ -175,16 +175,17 @@ void createDVDList(ifstream& infile,
 
 
 	while (infile.peek() != EOF) {
-		getline(cin, title);
-		getline(cin, star1);
-		getline(cin, star2);
-		getline(cin, producer);
-		getline(cin, director);
-		getline(cin, productionCo);
+		getline(infile, title);
+		getline(infile, star1);
+		getline(infile, star2);
+		getline(infile, producer);
+		getline(infile, director);
+		getline(infile, productionCo);
 		infile >> stock;
-		getline(cin, dummy);
+		getline(infile, dummy);
 
-		DvdType tempDVD(title, star1, star2, producer, director, productionCo, stock);
+		DvdType tempDVD;
+		tempDVD.setDvdInfo(title, star1, star2, producer, director, productionCo, stock);
 		dvdList.insert(tempDVD);
 	}
 
