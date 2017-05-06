@@ -46,12 +46,14 @@ public:
 		int rentals = 0;
 
 		if (searchCust(id, found, current)) {
-			
-		}
+			rentals = current->info.getNoOfRentals();
+		} return rentals;
 	}
 
 	void rentedDvdsInfo() {
-	
+		nodeType<CustomerType> *current;
+		inorderRentedDvdInfo(current);
+
 	}
 
 private:
@@ -84,6 +86,7 @@ private:
 	void inorderRentedDvdInfo(nodeType<CustomerType>* p) {
 		// Function to do an inorder traversal and print
 		// rented DVD information
+		p->info.printRentedDvd();
 
 	}
 

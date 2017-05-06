@@ -68,6 +68,7 @@ int main()
 			}
 			break;
 		case 5:    //print only the titles of all dvds
+			dvdList.inorderTraversal();
 			
 			break;
 		case 6:   //print a list of all dvds

@@ -18,51 +18,96 @@ using namespace std;
 class DvdBinaryTree:public BinarySearchTree<DvdType>
 {
 public:
-    bool dvdSearch(string title);
-      //Function to search the list to see whether a
-      //particular title, specified by the parameter title,
-      //is in the store.
-      //Postcondition: Returns true if the title is found,
-      //               and false otherwise.
+	bool dvdSearch(string title) {
+		//Function to search the list to see whether a
+		//particular title, specified by the parameter title,
+		//is in the store.
+		//Postcondition: Returns true if the title is found,
+		//               and false otherwise.
+		nodeType<DvdType> *current;
+		bool found = false;
 
-    bool isDvdAvailable(string title);
-      //Function to determine whether a copy of a particular 
-      //DVD is in the store.
-      //Postcondition: Returns true if at least one copy of 
-      //               the DVD specified by title is in the 
-      //               store,and false otherwise.
+		searchDvdList(title, found, current);
+		return found;
+	}
 
-    void dvdCheckIn(string title);
-      //Function to check in a DVD returned by a customer
-      //Postcondition: copiesInStock is incremented by one.
+	bool isDvdAvailable(string title) {
+		//Function to determine whether a copy of a particular 
+		//DVD is in the store.
+		//Postcondition: Returns true if at least one copy of 
+		//               the DVD specified by title is in the 
+		//               store,and false otherwise.
+		nodeType<DvdType> *current;
+		bool found = false;
+		int copies = 0;
 
-    void dvdCheckOut(string title);
-      //Function to check out a DVD, that is, rent a DVD.
-      //Postcondition: copiesInStock is decremented by one.
+		searchDvdList(title, found, current);
+		if (found == true) {
+			copies = current->info.getNoOfCopiesInStock();
+		}
+		if (copies > 0) {
+			return true;
+		}
+		
+		return false;
+	}
 
-    bool dvdCheckTitle(string title) const;
-      //Function to determine whether a particular DVD is in
-      //the store.
-      //Postcondition: Returns true if the DVD’s title is
-      //               the same as title, and false otherwise.
+	void dvdCheckIn(string title) {
+		//Function to check in a DVD returned by a customer
+		//Postcondition: copiesInStock is incremented by one.
+		nodeType<DvdType> *current;
+		bool found = false;
 
-    void dvdUpdateInStock(string title, int num);
-      //Function to update the number of copies of a DVD
-      //by adding the value of the parameter num. The 
-      //parameter title specifies the name of the DVD for
-      //which the number of copies is to be updated.
-      //Postcondition: copiesInStock = copiesInStock + num;
+		searchDvdList(title, found, current);
+		current->info.checkIn();
+	}
+	void dvdCheckOut(string title) {
+		//Function to check out a DVD, that is, rent a DVD.
+		//Postcondition: copiesInStock is decremented by one.
+		nodeType<DvdType> *current;
+		bool found = false;
 
-    void dvdSetCopiesInStock(string title, int num);
-      //Function to reset the number of copies of a DVD.
-      //The parameter title specifies the name of the DVD
-      //for which the number of copies is to be reset, and 
-      //the parameter num specifies the number of copies.
-      //Postcondition: copiesInStock = num;
+		searchDvdList(title, found, current);
+		current->info.checkOut();
+	}
 
-    void dvdPrintTitle() const;
-      //Function to print the titles of all the DVDs in 
-      //the store.
+	bool dvdCheckTitle(string title) const {
+		//Function to determine whether a particular DVD is in
+		//the store.
+		//Postcondition: Returns true if the DVD’s title is
+		//               the same as title, and false otherwise.
+	}
+
+	void dvdUpdateInStock(string title, int num) {
+		//Function to update the number of copies of a DVD
+		//by adding the value of the parameter num. The 
+		//parameter title specifies the name of the DVD for
+		//which the number of copies is to be updated.
+		//Postcondition: copiesInStock = copiesInStock + num;
+		nodeType<DvdType> *current;
+		bool found = false;
+
+		searchDvdList(title, found, current);
+		current->info.updateInStock(num);
+	}
+
+	void dvdSetCopiesInStock(string title, int num) {
+		//Function to reset the number of copies of a DVD.
+		//The parameter title specifies the name of the DVD
+		//for which the number of copies is to be reset, and 
+		//the parameter num specifies the number of copies.
+		//Postcondition: copiesInStock = num;
+		nodeType<DvdType> *current;
+		bool found = false;
+
+		searchDvdList(title, found, current);
+		current->info.setCopiesInStock(num);
+	}
+
+	void dvdPrintTitle() const {
+		//Function to print the titles of all the DVDs in 
+		//the store.
+	}
 
 private:
 	void searchDvdList(string title, bool& found,
@@ -80,9 +125,11 @@ private:
 
 
 
-    void inorderTitle(nodeType<DvdType> *p)  const;
-      //This function prints the titles of all the DVDs
-      //in stock. 
+	void inorderTitle(nodeType<DvdType> *p)  const {
+		//This function prints the titles of all the DVDs
+		//in stock. 
+		
+	}
 };
 
 #endif
