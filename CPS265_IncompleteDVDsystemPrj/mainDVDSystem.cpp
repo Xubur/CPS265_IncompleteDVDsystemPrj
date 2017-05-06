@@ -40,8 +40,8 @@ int main()
 		exit(1);
 	}
 
-	//createDVDList(dvdinfile, dvdList);                   //infinite loop in one of these two
-	//createCustomerList(custinfile, custList);
+	//createDVDList(dvdinfile, dvdList);                   //infinite loop in this one
+	createCustomerList(custinfile, custList);
 	
 	displayMenu();
 	cout << "Enter choice: ";
@@ -93,7 +93,7 @@ int main()
 			break;
 		case 7:  //print a list of customers
 			custList.inorderTraversal();
-
+			cout << endl;
 			break;
 		case 8:  //print a list of the dvds rented by a customer
 			cout << "Enter customer id: " << endl;
@@ -150,6 +150,8 @@ void createCustomerList(ifstream& infile,
 		custList.insert(tempcust);
 		infile >> firstname >> lastname >> accnum;
 	}
+	CustomerType tempcust(firstname, lastname, accnum);
+	custList.insert(tempcust);
 }
 
 void createDVDList(ifstream& infile,
