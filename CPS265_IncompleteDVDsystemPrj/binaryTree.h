@@ -1,6 +1,6 @@
 //Header File Binary Search Tree
-#ifndef H_binaryTree
-#define H_binaryTree
+#ifndef H_BINARYTREE
+#define H_BINARYTREE
 
 #include <iostream>
  
@@ -17,11 +17,11 @@ struct nodeType
 	
     //Definition of the class
 template <class elemType>
-class BinaryTreeType
+class BinaryTree
 {
 public:
-    const BinaryTreeType<elemType>& operator=
-                 (const BinaryTreeType<elemType>&); 
+    const BinaryTree<elemType>& operator=
+                 (const BinaryTree<elemType>&); 
       //Overload the assignment operator.
 
     bool isEmpty() const;
@@ -86,13 +86,13 @@ public:
       //               deleteItem is not in the binary tree, 
       //               an appropriate message is printed.
 
-    BinaryTreeType(const BinaryTreeType<elemType>& otherTree); 
+    BinaryTree(const BinaryTree<elemType>& otherTree); 
       //Copy constructor
 
-    BinaryTreeType();   
+    BinaryTree();   
       //Default constructor
 
-    ~BinaryTreeType();   
+    ~BinaryTree();   
       //Destructor
 
 protected:
@@ -159,55 +159,55 @@ private:
 	//Definition of member functions
 
 template <class elemType>
-BinaryTreeType<elemType>::BinaryTreeType()
+BinaryTree<elemType>::BinaryTree()
 {
     root = nullptr;
 }
 
 template <class elemType>
-bool BinaryTreeType<elemType>::isEmpty() const
+bool BinaryTree<elemType>::isEmpty() const
 {
     return (root == nullptr);
 }
 
 template <class elemType>
-void BinaryTreeType<elemType>::inorderTraversal() const
+void BinaryTree<elemType>::inorderTraversal() const
 {
     inorder(root);
 }
 
 template <class elemType>
-void BinaryTreeType<elemType>::preorderTraversal() const
+void BinaryTree<elemType>::preorderTraversal() const
 {
     preorder(root);
 }
 
 template <class elemType>
-void BinaryTreeType<elemType>::postorderTraversal() const
+void BinaryTree<elemType>::postorderTraversal() const
 {
     postorder(root);
 }
 
 template <class elemType>
-int BinaryTreeType<elemType>::treeHeight() const
+int BinaryTree<elemType>::treeHeight() const
 {
     return height(root);
 }
 
 template <class elemType>
-int BinaryTreeType<elemType>::treeNodeCount() const
+int BinaryTree<elemType>::treeNodeCount() const
 {
     return nodeCount(root);
 }
 
 template <class elemType>
-int BinaryTreeType<elemType>::treeLeavesCount() const
+int BinaryTree<elemType>::treeLeavesCount() const
 {
     return leavesCount(root);
 }
 
 template <class elemType>
-void  BinaryTreeType<elemType>::copyTree
+void  BinaryTree<elemType>::copyTree
                        (nodeType<elemType>* &copiedTreeRoot,
                         nodeType<elemType>* otherTreeRoot)
 {
@@ -223,7 +223,7 @@ void  BinaryTreeType<elemType>::copyTree
 } //end copyTree
 
 template <class elemType>
-void BinaryTreeType<elemType>::inorder
+void BinaryTree<elemType>::inorder
                               (nodeType<elemType> *p) const
 {
     if (p != nullptr)
@@ -235,7 +235,7 @@ void BinaryTreeType<elemType>::inorder
 }
 
 template <class elemType>
-void BinaryTreeType<elemType>::preorder
+void BinaryTree<elemType>::preorder
                               (nodeType<elemType> *p) const
 {
     if (p != nullptr)
@@ -247,7 +247,7 @@ void BinaryTreeType<elemType>::preorder
 }
 
 template <class elemType>
-void BinaryTreeType<elemType>::postorder
+void BinaryTree<elemType>::postorder
                               (nodeType<elemType> *p) const
 {
     if (p != nullptr)
@@ -260,8 +260,8 @@ void BinaryTreeType<elemType>::postorder
 
    //Overload the assignment operator
 template <class elemType>
-const BinaryTreeType<elemType>& BinaryTreeType<elemType>::
-        operator=(const BinaryTreeType<elemType>& otherTree)
+const BinaryTree<elemType>& BinaryTree<elemType>::
+        operator=(const BinaryTree<elemType>& otherTree)
 { 
     if (this != &otherTree) //avoid self-copy
     {
@@ -279,7 +279,7 @@ const BinaryTreeType<elemType>& BinaryTreeType<elemType>::
 }
 
 template <class elemType>
-void  BinaryTreeType<elemType>::destroy(nodeType<elemType>* &p)
+void  BinaryTree<elemType>::destroy(nodeType<elemType>* &p)
 {
     if (p != nullptr)
     {
@@ -291,15 +291,15 @@ void  BinaryTreeType<elemType>::destroy(nodeType<elemType>* &p)
 }
 
 template <class elemType>
-void  BinaryTreeType<elemType>::destroyTree()
+void  BinaryTree<elemType>::destroyTree()
 {
     destroy(root);
 }
 
 	//copy constructor
 template <class elemType>
-BinaryTreeType<elemType>::BinaryTreeType
-                (const BinaryTreeType<elemType>& otherTree)
+BinaryTree<elemType>::BinaryTree
+                (const BinaryTree<elemType>& otherTree)
 {
     if (otherTree.root == nullptr) //otherTree is empty
         root = nullptr;
@@ -309,13 +309,13 @@ BinaryTreeType<elemType>::BinaryTreeType
 
     //Destructor
 template <class elemType>
-BinaryTreeType<elemType>::~BinaryTreeType()
+BinaryTree<elemType>::~BinaryTree()
 {
     destroy(root);
 }
 
 template<class elemType>
-int BinaryTreeType<elemType>::height
+int BinaryTree<elemType>::height
                              (nodeType<elemType> *p) const
 {
     if (p == nullptr)
@@ -325,7 +325,7 @@ int BinaryTreeType<elemType>::height
 }
 
 template <class elemType>
-int BinaryTreeType<elemType>::max(int x, int y) const
+int BinaryTree<elemType>::max(int x, int y) const
 {
     if (x >= y)
         return x;
@@ -334,7 +334,7 @@ int BinaryTreeType<elemType>::max(int x, int y) const
 }
 
 template<class elemType>
-int BinaryTreeType<elemType>::nodeCount(nodeType<elemType> *p) const
+int BinaryTree<elemType>::nodeCount(nodeType<elemType> *p) const
 {
 	if (p == nullptr)
 		return 0;
@@ -343,7 +343,7 @@ int BinaryTreeType<elemType>::nodeCount(nodeType<elemType> *p) const
 }
 
 template <class elemType>
-int BinaryTreeType<elemType>::leavesCount(nodeType<elemType> *p) const
+int BinaryTree<elemType>::leavesCount(nodeType<elemType> *p) const
 {
     cout << "Write the definition of the function leavesCount."
          << endl;

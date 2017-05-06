@@ -3,7 +3,7 @@
 #define H_CustomerType
 
 #include <iostream>
-#include "PersonType.h"
+#include "personType.h"
 #include <string>
 #include "binarySearchTree.h"
 
@@ -22,9 +22,9 @@ public:
 	  //set firstName, lastName, and account number 
 	  //according to the parameters
 	  //firstName = first; lastName = last; 
-	bool rentDVD(string);
+	bool rentDvd(string);
 	  //This function rents a DVD to the customer
-	bool returnDVD(string);
+	bool returnDvd(string);
 	  //This function renturns a DVD to the customer
 
 	int getNoOfRentals();
@@ -34,7 +34,7 @@ public:
 	  //This function returns the account number of
 	  //the customer.
 
-	void printRentedDVD();
+	void printRentedDvd();
 
 	CustomerType(string first, string last, int acctNo);
 	  //constructor with parameters
@@ -56,7 +56,7 @@ public:
      
 private:
 	int custAcctNo; // store account number
-	BSearchTreeType<string> rentedDVDTree;
+	BinarySearchTree<string> rentedDvdTree;
 };
 
 #endif 

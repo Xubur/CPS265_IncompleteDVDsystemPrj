@@ -1,12 +1,12 @@
  //dvdBinaryTree.h
 //***********************************************************
-// class dvdBinaryTree
-// This class extends the class BSearchTreeType to create
+// class DvdBinaryTree
+// This class extends the class BinarySearchTree to create
 // a Dvd list. 
 //***********************************************************
 
-#ifndef H_DVDBinaryTree
-#define H_DVDBinaryTree
+#ifndef H_DVDBINARYTREE
+#define H_DVDBINARYTREE
  
 #include <iostream>
 #include <string>
@@ -15,7 +15,7 @@
 
 using namespace std;
 
-class dvdBinaryTree:public BSearchTreeType<dvdType>
+class DvdBinaryTree:public BinarySearchTree<DvdType>
 {
 public:
     bool dvdSearch(string title);
@@ -65,15 +65,22 @@ public:
       //the store.
 
 private:
-    void searchDvdList(string title, bool& found,
-                         nodeType<dvdType>* &current) const;
-      //This function searches the DVD list for a 
-      //particular DVD, specified by the parameter title. 
-      //If the DVD is found, the parameter found is set to 
-      //true, otherwise false; the parameter current points  
-      //to the node containing the DVD.
+	void searchDvdList(string title, bool& found,
+		nodeType<DvdType>* &current) const
+		//This function searches the DVD list for a 
+		//particular DVD, specified by the parameter title. 
+		//If the DVD is found, the parameter found is set to 
+		//true, otherwise false; the parameter current points  
+		//to the node containing the DVD.
+	{
+		nodeType<DvdType> *currentNode = current; // I feel like this may be inefficient. Not sure.
+		
+		
+	}
 
-    void inorderTitle(nodeType<dvdType> *p)  const;
+
+
+    void inorderTitle(nodeType<DvdType> *p)  const;
       //This function prints the titles of all the DVDs
       //in stock. 
 };

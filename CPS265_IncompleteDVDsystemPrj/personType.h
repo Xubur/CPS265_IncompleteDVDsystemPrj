@@ -1,8 +1,8 @@
 
-//PersonType.h
+//personType.h
 
-#ifndef H_PersonType
-#define H_PersonType
+#ifndef H_PERSONTYPE
+#define H_PERSONTYPE
 
 #include <string>
  

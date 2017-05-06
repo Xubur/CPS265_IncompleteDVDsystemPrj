@@ -1,21 +1,21 @@
 
 //************************************************************
-// class dvdType
+// class DvdType
 // This class specifies the members to implement a DVD. It
 // overloads the stream insertion operator and relational 
 // operators.
 //************************************************************
 
-#ifndef H_dvdType
-#define H_dvdType
+#ifndef H_DVDTYPE
+#define H_DVDTYPE
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class dvdType
+class DvdType
 {
-	friend ostream& operator<< (ostream&, const dvdType&);
+	friend ostream& operator<< (ostream&, const DvdType&);
 
 public:
 	void setDvdInfo(string title, string star1,
@@ -77,7 +77,7 @@ public:
 	//Function to return the title of the DVD.
 	//Postcondition: The title of the DVD is returned.
 
-	dvdType(string title = "", string star1 = "",
+	DvdType(string title = "", string star1 = "",
 		string star2 = "", string producer = "",
 		string director = "", string productionCo = "",
 		int setInStock = 0);
@@ -93,12 +93,12 @@ public:
 	//               copiesInStock = setInStock;
 
 	  //Overload relational operators
-	bool operator==(const dvdType&) const;
-	bool operator!=(const dvdType&) const;
-	bool operator<(const dvdType&) const;
-	bool operator<=(const dvdType&) const;
-	bool operator>(const dvdType&) const;
-	bool operator>=(const dvdType&) const;
+	bool operator==(const DvdType&) const;
+	bool operator!=(const DvdType&) const;
+	bool operator<(const DvdType&) const;
+	bool operator<=(const DvdType&) const;
+	bool operator>(const DvdType&) const;
+	bool operator>=(const DvdType&) const;
 
 private:
 	string dvdTitle;  //variable to store the name 

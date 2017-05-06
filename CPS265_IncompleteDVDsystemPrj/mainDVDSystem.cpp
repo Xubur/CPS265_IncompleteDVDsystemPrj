@@ -2,13 +2,13 @@
 #include <fstream>
 #include "dvdType.h"
 #include "dvdBinaryTree.h"
-#include "customer.h"
+#include "customerType.h"
 #include "customerBinaryTree.h"
 
 using namespace std;
 
 void createDVDList(ifstream& infile,
-	dvdBinaryTree& dvdList);
+	DvdBinaryTree& dvdList);
 void createCustomerList(ifstream& infile,
 	CustomerBTreeType& custList);
 void displayMenu();
@@ -19,7 +19,7 @@ int main()
 	int choice;
 	CustomerType cust;
 	CustomerBTreeType custList;
-	dvdBinaryTree dvdList;
+	DvdBinaryTree dvdList;
 	ifstream custinfile;
 	ifstream dvdinfile;
 	string dvdTitle;
@@ -134,7 +134,7 @@ void createCustomerList(ifstream& infile,
 }
 
 void createDVDList(ifstream& infile,
-	dvdBinaryTree& dvdList) {                      //also unfinished
+	DvdBinaryTree& dvdList) {                      //also unfinished
 	string dvdFileName = "dvdDat.txt";
 	string dummy;
 	string title;
@@ -156,7 +156,7 @@ void createDVDList(ifstream& infile,
 		infile >> stock;
 		getline(cin, dummy);
 
-		dvdType tempDVD(title, star1, star2, producer, director, productionCo, stock);
+		DvdType tempDVD(title, star1, star2, producer, director, productionCo, stock);
 		dvdList.insert(tempDVD);
 	}
 

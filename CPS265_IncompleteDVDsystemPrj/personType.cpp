@@ -1,8 +1,8 @@
-//PersonTypeImp.cpp
+//personTypeImp.cpp
 //fully implemented
 #include <iostream>
 #include <string>
-#include "PersonType.h"
+#include "personType.h"
  
 using namespace std;
 

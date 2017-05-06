@@ -148,7 +148,7 @@
   <ItemGroup>
     <ClInclude Include="binarySearchTree.h" />
     <ClInclude Include="binaryTree.h" />
-    <ClInclude Include="customer.h" />
+    <ClInclude Include="customerType.h" />
     <ClInclude Include="customerBinaryTree.h" />
     <ClInclude Include="dvdBinaryTree.h" />
     <ClInclude Include="dvdType.h" />
@@ -159,8 +159,7 @@
     <Text Include="dvdDat.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="customer.cpp" />
-    <ClCompile Include="dvdBinaryTree.cpp" />
+    <ClCompile Include="customerType.cpp" />
     <ClCompile Include="dvdType.cpp" />
     <ClCompile Include="mainDvdSystem.cpp" />
     <ClCompile Include="personType.cpp" />

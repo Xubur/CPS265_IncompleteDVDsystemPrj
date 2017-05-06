@@ -5,11 +5,11 @@
 #include <iostream>
 #include <string>
 #include "binarySearchTree.h"
-#include "customer.h"
+#include "customerType.h"
 
 using namespace std;
 
-class CustomerBTreeType:public BSearchTreeType<CustomerType>
+class CustomerBTreeType:public BinarySearchTree<CustomerType>
 {
 public:
 	bool custSearchId(int id) {          //improvement still needed
@@ -21,22 +21,22 @@ public:
 
 		}
 	
-	bool custReturnDVD(int id, string title) {
+	bool custReturnDvd(int id, string title) {
 		nodeType<CustomerType> *current;
 		bool found = false;
 
 		if (searchCust(id, found, current)) {
-			current->info.returnDVD(title);
+			current->info.returnDvd(title);
 		}
 		return found;
 
 	   }
-	bool custRentDVD(int id, string title) {
+	bool custRentDvd(int id, string title) {
 		nodeType<CustomerType> *current;
 		bool found = false;
 
 		if (searchCust(id, found, current)) {
-			current->info.rentDVD(title);
+			current->info.rentDvd(title);
 		}
 		return found;
 	}
@@ -50,7 +50,7 @@ public:
 		}
 	}
 
-	void rentedDVDsInfo() {
+	void rentedDvdsInfo() {
 	
 	}
 
@@ -81,7 +81,7 @@ private:
 
 	}
 
-	void inorderRentedDVDInfo(nodeType<CustomerType>* p) {
+	void inorderRentedDvdInfo(nodeType<CustomerType>* p) {
 		// Function to do an inorder traversal and print
 		// rented DVD information
 

@@ -1,14 +1,14 @@
 //Header File Binary Search Tree
 
-#ifndef H_binarySearchTree
-#define H_binarySearchTree
+#ifndef H_BINARYSEARCHTREE
+#define H_BINARYSEARCHTREE
 #include <iostream>
 #include "binaryTree.h"
 
 using namespace std;
 
 template <class elemType>
-class BSearchTreeType: public BinaryTreeType<elemType>
+class BinarySearchTree: public BinaryTree<elemType>
 {
 public:
     bool search(const elemType& searchItem) const;
@@ -45,7 +45,7 @@ private:
 
 
 template <class elemType>
-bool BSearchTreeType<elemType>::search
+bool BinarySearchTree<elemType>::search
                     (const elemType& searchItem) const
 {
     nodeType<elemType> *current;
@@ -72,7 +72,7 @@ bool BSearchTreeType<elemType>::search
 }//end search
 
 template <class elemType>
-bool BSearchTreeType<elemType>::insert
+bool BinarySearchTree<elemType>::insert
                  (const elemType& insertItem)  // returns true if an item is actually inserted
 {
     nodeType<elemType> *current= nullptr; //pointer to traverse the tree
@@ -124,7 +124,7 @@ bool BSearchTreeType<elemType>::insert
 }//end insert
 
 template <class elemType>
-bool BSearchTreeType<elemType>::deleteNode
+bool BinarySearchTree<elemType>::deleteNode
 (const elemType& deleteItem) // returns true if an item is actually removed
 {
 	nodeType<elemType> *current; //pointer to traverse the tree
@@ -184,7 +184,7 @@ bool BSearchTreeType<elemType>::deleteNode
 } //end deleteNode
 
 template <class elemType>
-void BSearchTreeType<elemType>::deleteFromTree
+void BinarySearchTree<elemType>::deleteFromTree
                                  (nodeType<elemType>* &p)
 {
     nodeType<elemType> *current; //pointer to traverse the tree

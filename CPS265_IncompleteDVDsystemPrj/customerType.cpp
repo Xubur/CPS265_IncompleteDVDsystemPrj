@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "customer.h"
+#include "customerType.h"
 
 using namespace std;
  
@@ -26,24 +26,24 @@ void CustomerType::setCustInfo(string first, string last, int acctNo) {
 	custAcctNo = acctNo;
 };
 
-bool CustomerType::rentDVD(string name) {
-	return rentedDVDTree.insert(name);
+bool CustomerType::rentDvd(string name) {
+	return rentedDvdTree.insert(name);
 };
 
-bool CustomerType::returnDVD(string name) {
-	return rentedDVDTree.deleteNode(name);
+bool CustomerType::returnDvd(string name) {
+	return rentedDvdTree.deleteNode(name);
 };
 
 int CustomerType::getNoOfRentals() {
-	return rentedDVDTree.treeNodeCount();
+	return rentedDvdTree.treeNodeCount();
 };
 
 int CustomerType::getAcctNo() {
 	return custAcctNo;
 };
 
-void CustomerType::printRentedDVD() {
-	rentedDVDTree.inorderTraversal();
+void CustomerType::printRentedDvd() {
+	rentedDvdTree.inorderTraversal();
 };
 
 bool CustomerType::operator==(const CustomerType& right) const {
@@ -79,7 +79,7 @@ ostream& operator<<(ostream& os,  CustomerType& cust)
 {
 	os << cust.custAcctNo << " " << cust.getFirstName()
 	   << " " << cust.getLastName()
-	   << " " << cust.rentedDVDTree.treeNodeCount() << endl;
+	   << " " << cust.rentedDvdTree.treeNodeCount() << endl;
 
 	return os;
 } 
