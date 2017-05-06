@@ -50,10 +50,19 @@ public:
 		} return rentals;
 	}
 
-	void rentedDvdsInfo() {
+	void rentedDvdsInfo(int id) {
 		nodeType<CustomerType> *current;
-		inorderRentedDvdInfo(current);
+		bool found = false;
 
+
+		if (searchCust(id, found, current)) {
+			if (current->info.getNoOfRentals() > 0) {
+				inorderRentedDvdInfo(current);
+			}
+		}
+		else {
+			cout << "No current rentals." << endl;
+		}
 	}
 
 private:

@@ -85,20 +85,27 @@ int main()
 			}
 			break;
 		case 5:    //print only the titles of all dvds
-			dvdList.inorderTraversal();
+
 			
 			break;
 		case 6:   //print a list of all dvds
-			
+			dvdList.inorderTraversal();
 			break;
-		case 7:  //print a list of customers
+		case 7:  //print a list of customers -- Working
 			custList.inorderTraversal();
 			cout << endl;
 			break;
-		case 8:  //print a list of the dvds rented by a customer
+		case 8:  //print a list of the dvds rented by a customer -- Not working
 			cout << "Enter customer id: " << endl;
 			cin >> custID;
 			getline(cin, dummy);
+			if (custList.custSearchId(custID)) {
+
+				custList.rentedDvdsInfo(custID);
+			}
+			else {
+				cout << "Customer not found." << endl;
+			}
 
 			break;
 		default:
