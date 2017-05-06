@@ -46,16 +46,19 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="customerImp.cpp">
+    <ClCompile Include="mainDvdSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dvdTypeImp.cpp">
+    <ClCompile Include="dvdBinaryTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mainDVDSystem.cpp">
+    <ClCompile Include="customer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="personTypeImp.cpp">
+    <ClCompile Include="dvdType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="personType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,14 +1,14 @@
 #include <iostream>
 #include <fstream>
-#include "DvdType.h"
-#include "DVDBinaryTree.h"
+#include "dvdType.h"
+#include "dvdBinaryTree.h"
 #include "customer.h"
 #include "customerBinaryTree.h"
 
 using namespace std;
 
 void createDVDList(ifstream& infile,
-	DVDBinaryTree& dvdList);
+	dvdBinaryTree& dvdList);
 void createCustomerList(ifstream& infile,
 	CustomerBTreeType& custList);
 void displayMenu();
@@ -19,7 +19,7 @@ int main()
 	int choice;
 	CustomerType cust;
 	CustomerBTreeType custList;
-	DVDBinaryTree dvdList;
+	dvdBinaryTree dvdList;
 	ifstream custinfile;
 	ifstream dvdinfile;
 	string dvdTitle;
@@ -60,7 +60,7 @@ int main()
 		case 4:    //check if the dvd is currently available
 			cout << "Enter the title: ";
 			getline(cin, dvdTitle);
-			if (dvdList.isDVDAvailable(dvdTitle)) {
+			if (dvdList.isDvdAvailable(dvdTitle)) {
 				cout << "That DVD is currently available." << endl;
 			}
 			else {
@@ -134,7 +134,7 @@ void createCustomerList(ifstream& infile,
 }
 
 void createDVDList(ifstream& infile,
-	DVDBinaryTree& dvdList) {                      //also unfinished
+	dvdBinaryTree& dvdList) {                      //also unfinished
 	string dvdFileName = "dvdDat.txt";
 	string dummy;
 	string title;
@@ -156,7 +156,7 @@ void createDVDList(ifstream& infile,
 		infile >> stock;
 		getline(cin, dummy);
 
-		DvdType tempDVD(title, star1, star2, producer, director, productionCo, stock);
+		dvdType tempDVD(title, star1, star2, producer, director, productionCo, stock);
 		dvdList.insert(tempDVD);
 	}
 

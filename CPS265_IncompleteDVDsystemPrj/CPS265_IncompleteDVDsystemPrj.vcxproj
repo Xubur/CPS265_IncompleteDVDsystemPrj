@@ -159,10 +159,11 @@
     <Text Include="dvdDat.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="customerImp.cpp" />
-    <ClCompile Include="dvdTypeImp.cpp" />
-    <ClCompile Include="mainDVDSystem.cpp" />
-    <ClCompile Include="personTypeImp.cpp" />
+    <ClCompile Include="customer.cpp" />
+    <ClCompile Include="dvdBinaryTree.cpp" />
+    <ClCompile Include="dvdType.cpp" />
+    <ClCompile Include="mainDvdSystem.cpp" />
+    <ClCompile Include="personType.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

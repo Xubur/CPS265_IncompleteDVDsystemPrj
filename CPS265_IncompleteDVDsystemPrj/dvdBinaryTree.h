@@ -1,8 +1,8 @@
- //DVDBinaryTree.h
+ //dvdBinaryTree.h
 //***********************************************************
-// class DVDBinaryTree
+// class dvdBinaryTree
 // This class extends the class BSearchTreeType to create
-// a DVD list. 
+// a Dvd list. 
 //***********************************************************
 
 #ifndef H_DVDBinaryTree
@@ -11,11 +11,11 @@
 #include <iostream>
 #include <string>
 #include "binarySearchTree.h"
-#include "DvdType.h"
+#include "dvdType.h"
 
 using namespace std;
 
-class DVDBinaryTree:public BSearchTreeType<DvdType>
+class dvdBinaryTree:public BSearchTreeType<dvdType>
 {
 public:
     bool dvdSearch(string title);
@@ -25,7 +25,7 @@ public:
       //Postcondition: Returns true if the title is found,
       //               and false otherwise.
 
-    bool isDVDAvailable(string title);
+    bool isDvdAvailable(string title);
       //Function to determine whether a copy of a particular 
       //DVD is in the store.
       //Postcondition: Returns true if at least one copy of 
@@ -65,15 +65,15 @@ public:
       //the store.
 
 private:
-    void searchDVDList(string title, bool& found,
-                         nodeType<DvdType>* &current) const;
+    void searchDvdList(string title, bool& found,
+                         nodeType<dvdType>* &current) const;
       //This function searches the DVD list for a 
       //particular DVD, specified by the parameter title. 
       //If the DVD is found, the parameter found is set to 
       //true, otherwise false; the parameter current points  
       //to the node containing the DVD.
 
-    void inorderTitle(nodeType<DvdType> *p)  const;
+    void inorderTitle(nodeType<dvdType> *p)  const;
       //This function prints the titles of all the DVDs
       //in stock. 
 };

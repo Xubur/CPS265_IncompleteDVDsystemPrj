@@ -1,64 +1,60 @@
 #include <iostream>
 #include <string>
-#include "DvdType.h"
+#include "dvdType.h"
 
 using namespace std;
 
-DvdType::DvdType(
-	string title = "",
-	string star1 = "",
-	string star2 = "",
-	string producer = "",
-	string director = "",
-	string productionCo = "",
-	int setInStock = 0)
+dvdType::dvdType(string title, string star1,
+	string star2, string producer,
+	string director, string productionCo,
+	int setInStock)
 {
-	setDVDInfo(title, star1, star2, producer, director, productionCo, setInStock);
+	setDvdInfo(title, star1, star2, producer, director, productionCo, setInStock);
 }
 
 
-int DvdType::getNoOfCopiesInStock() const
+int dvdType::getNoOfCopiesInStock() const
 {
 	return copiesInStock;
 }
 
-void DvdType::setCopiesInStock(int numCopies)
+void dvdType::setCopiesInStock(int numCopies)
 {
 	copiesInStock = numCopies;
 }
 
-void DvdType::checkOut()
+void dvdType::checkOut()
 {
 	copiesInStock--;
 }
 
-void DvdType::checkIn()
+void dvdType::checkIn()
 {
 	copiesInStock++;
 }
 
-void DvdType::printTitle() const
+void dvdType::printTitle() const
 {
 	cout << "Title: " << dvdTitle << endl;
 
 }
 
-bool DvdType::checkTitle(string check)
+bool dvdType::checkTitle(string check)
 {
 	return check == dvdTitle;
 }
 
-void DvdType::updateInStock(int updateNum)
+void dvdType::updateInStock(int updateNum)
 {
 	copiesInStock += updateNum;
 }
 
-string DvdType::getTitle() const
+string dvdType::getTitle() const
 {
 	return dvdTitle;
 }
 
-void DvdType::printInfo() const
+void dvdType::printInfo() const
 {
 	cout << endl;
 	cout << "DVD Title: " << dvdTitle << endl;
@@ -69,7 +65,7 @@ void DvdType::printInfo() const
 	cout << "Copies in stock: " << copiesInStock << endl;
 }
 
-bool DvdType::operator==(const DvdType& otherDvd) const
+bool dvdType::operator==(const dvdType& otherDvd) const
 {
 	if (otherDvd.getTitle() != getTitle())
 		return false;
@@ -86,7 +82,7 @@ bool DvdType::operator==(const DvdType& otherDvd) const
 	return true;
 }
 
-bool DvdType::operator!=(const DvdType& otherDvd) const
+bool dvdType::operator!=(const dvdType& otherDvd) const
 {
 	if (otherDvd.getTitle() == getTitle())
 		return false;
@@ -103,7 +99,7 @@ bool DvdType::operator!=(const DvdType& otherDvd) const
 	return true;
 }
 
-bool DvdType::operator<(const DvdType& otherDvd) const
+bool dvdType::operator<(const dvdType& otherDvd) const
 {
 	if (otherDvd.getTitle() > dvdTitle)
 		return true;
@@ -111,7 +107,7 @@ bool DvdType::operator<(const DvdType& otherDvd) const
 		return false;
 }
 
-bool DvdType::operator<=(const DvdType& otherDvd) const
+bool dvdType::operator<=(const dvdType& otherDvd) const
 {
 	if (otherDvd.getTitle() >= dvdTitle)
 		return true;
@@ -119,7 +115,7 @@ bool DvdType::operator<=(const DvdType& otherDvd) const
 		return false;
 }
 
-bool DvdType::operator>(const DvdType& otherDvd) const
+bool dvdType::operator>(const dvdType& otherDvd) const
 {
 	if (otherDvd.getTitle() < dvdTitle)
 		return true;
@@ -127,7 +123,7 @@ bool DvdType::operator>(const DvdType& otherDvd) const
 		return false;
 }
 
-bool DvdType::operator>=(const DvdType& otherDvd) const
+bool dvdType::operator>=(const dvdType& otherDvd) const
 {
 	if (otherDvd.getTitle() <= dvdTitle)
 		return true;
@@ -135,7 +131,7 @@ bool DvdType::operator>=(const DvdType& otherDvd) const
 		return false;
 }
 
-ostream& operator<< (ostream& osObject, const DvdType& dvd)
+ostream& operator<< (ostream& osObject, const dvdType& dvd)
 {
 	osObject << endl;
 	osObject << "DVD Title: " << dvd.dvdTitle << endl;
