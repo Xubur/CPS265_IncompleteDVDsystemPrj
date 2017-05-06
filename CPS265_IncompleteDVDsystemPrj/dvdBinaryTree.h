@@ -73,8 +73,8 @@ private:
 		//true, otherwise false; the parameter current points  
 		//to the node containing the DVD.
 	{
-		nodeType<DvdType> *currentNode = current; // I feel like this may be inefficient. Not sure.
-		
+		found = search(current->info);
+		// do we actually need the title parameter if the dvd to search for is in the node "current"?????
 		
 	}
 
