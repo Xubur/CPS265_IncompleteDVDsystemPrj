@@ -73,13 +73,13 @@ int main()
 			break;
 		case 3:    //check in a dvd
 			cout << "Enter the title: ";
-			getline(cin, dvdTitle);
+			cin >> dvdTitle;
 			dvdList.dvdCheckIn(dvdTitle);
 			cout << endl;
 			break;
-		case 4:    //check if the dvd is currently available --Not working
+		case 4:    //check if the dvd is currently available -- Working
 			cout << "Enter the title: ";
-			getline(cin, dvdTitle);
+			cin >> dvdTitle;
 			if (dvdList.isDvdAvailable(dvdTitle)) {
 				cout << "That DVD is currently available." << endl;
 			}
