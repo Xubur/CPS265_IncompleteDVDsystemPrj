@@ -141,7 +141,6 @@ private:
 			}//end while
 		}//end else
 
-		current = nullptr;
 	}
 
 

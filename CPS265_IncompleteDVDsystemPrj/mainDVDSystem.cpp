@@ -99,7 +99,7 @@ int main()
 			custList.inorderTraversal();
 			cout << endl;
 			break;
-		case 8:  //print a list of the dvds rented by a customer -- Not working
+		case 8:  //print a list of the dvds rented by a customer -- Working
 			cout << "Enter customer id: " << endl;
 			cin >> custID;
 			getline(cin, dummy);

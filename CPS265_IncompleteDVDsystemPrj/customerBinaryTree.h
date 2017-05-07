@@ -92,7 +92,7 @@ private:
 			}//end while
 		}//end else
 
-		current = nullptr;
+
 		return found;
 	}
 
