@@ -54,7 +54,7 @@ int main()
 		cout << " Choice: " << choice << endl;
 		switch (choice)
 		{
-		case 1:   //check if the dvd is carried
+		case 1:   //check if the dvd is carried -- Working
 			cout << "Enter the title: ";
 			cin >> dvdTitle;
 			if (dvdList.dvdSearch(dvdTitle)) {
@@ -63,26 +63,30 @@ int main()
 			else {
 				cout << "That DVD is not carried." << endl;
 			}
+			cout << endl;
 			break;
 		case 2:   //check out a dvd
 			cout << "Enter the title: ";
 			cin >> dvdTitle;
 			dvdList.dvdCheckOut(dvdTitle);
+			cout << endl;
 			break;
 		case 3:    //check in a dvd
 			cout << "Enter the title: ";
 			getline(cin, dvdTitle);
 			dvdList.dvdCheckIn(dvdTitle);
+			cout << endl;
 			break;
 		case 4:    //check if the dvd is currently available --Not working
 			cout << "Enter the title: ";
 			getline(cin, dvdTitle);
-			//if (dvdList.isDvdAvailable(dvdTitle)) {
-			//	cout << "That DVD is currently available." << endl;
-			//}
-			//else {
+			if (dvdList.isDvdAvailable(dvdTitle)) {
+				cout << "That DVD is currently available." << endl;
+			}
+			else {
 				cout << "That DVD is not currently available." << endl;
-		//	}
+			}
+				cout << endl;
 			break;
 		case 5:    //print only the titles of all dvds
 
@@ -106,7 +110,7 @@ int main()
 			else {
 				cout << "Customer not found." << endl;
 			}
-
+			cout << endl;
 			break;
 		default:
 			cout << "Invalid selection." << endl;
