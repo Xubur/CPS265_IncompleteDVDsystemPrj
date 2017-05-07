@@ -26,7 +26,6 @@ public:
 		//               and false otherwise.
 		nodeType<DvdType> *current;
 		bool found = false;
-
 		searchDvdList(title, found, current);
 		return found;
 	}
@@ -66,7 +65,7 @@ public:
 		//Postcondition: copiesInStock is decremented by one.
 		nodeType<DvdType> *current;
 		bool found = false;
-		
+
 		searchDvdList(title, found, current);
 		if (found && current->info.getNoOfCopiesInStock() > 0)
 		{
@@ -110,6 +109,13 @@ public:
 	void dvdPrintTitle() const {
 		//Function to print the titles of all the DVDs in 
 		//the store.
+
+		if (root == nullptr)
+			cout << "Cannot print an empty tree." << endl;
+		else
+		{
+			inorderTitle(root);
+		}
 	}
 
 private:

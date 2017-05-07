@@ -102,8 +102,7 @@ int main()
 			cout << endl;
 			break;
 		case 5:    //print only the titles of all dvds
-
-
+			dvdList.dvdPrintTitle();
 			break;
 		case 6:   //print a list of all dvds -- Working
 			dvdList.inorderTraversal();
