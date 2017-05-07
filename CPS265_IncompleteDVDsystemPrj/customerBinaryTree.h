@@ -59,21 +59,20 @@ public:
 			if (current->info.getNoOfRentals() > 0) {
 				inorderRentedDvdInfo(current);
 			}
+			else {
+				cout << "No current rentals." << endl;
+			}
 		}
-		else {
-			cout << "No current rentals." << endl;
-		}
+
 	}
 
 private:
 	bool searchCust(int id, bool& found,
 		nodeType<CustomerType>* &current) {
-
 		CustomerType temp("", "", id);
-		found = search(temp);
 
+		found =search(temp);
 		return found;
-
 	}
 
 	void inorderRentedDvdInfo(nodeType<CustomerType>* p) {

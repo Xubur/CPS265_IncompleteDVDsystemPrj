@@ -56,7 +56,7 @@ int main()
 		{
 		case 1:   //check if the dvd is carried
 			cout << "Enter the title: ";
-			getline(cin, dvdTitle);
+			cin >> dvdTitle;
 			if (dvdList.dvdSearch(dvdTitle)) {
 				cout << "That DVD is carried." << endl;
 			}
@@ -66,7 +66,7 @@ int main()
 			break;
 		case 2:   //check out a dvd
 			cout << "Enter the title: ";
-			getline(cin, dvdTitle);
+			cin >> dvdTitle;
 			dvdList.dvdCheckOut(dvdTitle);
 			break;
 		case 3:    //check in a dvd
@@ -74,15 +74,15 @@ int main()
 			getline(cin, dvdTitle);
 			dvdList.dvdCheckIn(dvdTitle);
 			break;
-		case 4:    //check if the dvd is currently available
+		case 4:    //check if the dvd is currently available --Not working
 			cout << "Enter the title: ";
 			getline(cin, dvdTitle);
-			if (dvdList.isDvdAvailable(dvdTitle)) {
-				cout << "That DVD is currently available." << endl;
-			}
-			else {
+			//if (dvdList.isDvdAvailable(dvdTitle)) {
+			//	cout << "That DVD is currently available." << endl;
+			//}
+			//else {
 				cout << "That DVD is not currently available." << endl;
-			}
+		//	}
 			break;
 		case 5:    //print only the titles of all dvds
 
