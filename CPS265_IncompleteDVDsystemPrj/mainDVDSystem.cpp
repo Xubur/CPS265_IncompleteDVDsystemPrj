@@ -65,16 +65,29 @@ int main()
 			}
 			cout << endl;
 			break;
-		case 2:   //check out a dvd
+		case 2:   //check out a dvd -- Working
+			cout << "Enter customer id: " << endl;
+			cin >> custID;
+			getline(cin, dummy);
 			cout << "Enter the title: ";
 			cin >> dvdTitle;
-			dvdList.dvdCheckOut(dvdTitle);
+			if (dvdList.isDvdAvailable(dvdTitle)) {
+				dvdList.dvdCheckOut(dvdTitle);
+				custList.custRentDvd(custID, dvdTitle);
+			}
+			else {
+				cout << "That DVD is not avaiable." << endl;
+			}
 			cout << endl;
 			break;
-		case 3:    //check in a dvd
+		case 3:    //check in a dvd -- Working
+			cout << "Enter customer id: " << endl;
+			cin >> custID;
+			getline(cin, dummy);
 			cout << "Enter the title: ";
 			cin >> dvdTitle;
 			dvdList.dvdCheckIn(dvdTitle);
+			custList.custReturnDvd(custID, dvdTitle);
 			cout << endl;
 			break;
 		case 4:    //check if the dvd is currently available -- Working
