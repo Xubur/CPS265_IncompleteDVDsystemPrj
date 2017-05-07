@@ -1,4 +1,4 @@
- //dvdBinaryTree.h
+//dvdBinaryTree.h
 //***********************************************************
 // class DvdBinaryTree
 // This class extends the class BinarySearchTree to create
@@ -7,7 +7,7 @@
 
 #ifndef H_DVDBINARYTREE
 #define H_DVDBINARYTREE
- 
+
 #include <iostream>
 #include <string>
 #include "binarySearchTree.h"
@@ -15,7 +15,7 @@
 
 using namespace std;
 
-class DvdBinaryTree:public BinarySearchTree<DvdType>
+class DvdBinaryTree :public BinarySearchTree<DvdType>
 {
 public:
 	bool dvdSearch(string title) {
@@ -43,13 +43,13 @@ public:
 
 		searchDvdList(title, found, current);
 		if (found == true) {
-			copies = current->info.getNoOfCopiesInStock();
+			return current->info.getNoOfCopiesInStock() > 0;
 		}
-		if (copies > 0) {
-			return true;
+		else
+		{
+			cout << "Dvd not found." << endl;
+			return false;
 		}
-		
-		return false;
 	}
 
 	void dvdCheckIn(string title) {
@@ -66,9 +66,11 @@ public:
 		//Postcondition: copiesInStock is decremented by one.
 		nodeType<DvdType> *current;
 		bool found = false;
-
 		searchDvdList(title, found, current);
-		current->info.checkOut();
+		if (found && current->info.getNoOfCopiesInStock > 0)
+		{
+			current->info.checkOut();
+		}
 	}
 
 	bool dvdCheckTitle(string title) const {
@@ -140,8 +142,6 @@ private:
 					indexNode = indexNode->rLink;
 			}//end while
 		}//end else
-
-		current = nullptr;
 	}
 
 
@@ -149,7 +149,7 @@ private:
 	void inorderTitle(nodeType<DvdType> *p)  const {
 		//This function prints the titles of all the DVDs
 		//in stock. 
-		
+
 	}
 };
 

@@ -15,6 +15,7 @@ DvdType::DvdType(string title, string star1,
 
 int DvdType::getNoOfCopiesInStock() const
 {
+	cout << copiesInStock << "copies in stock." << endl;
 	return copiesInStock;
 }
 
@@ -26,6 +27,7 @@ void DvdType::setCopiesInStock(int numCopies)
 void DvdType::checkOut()
 {
 	copiesInStock--;
+	//setCopiesInStock(copiesInStock--);
 }
 
 void DvdType::checkIn()

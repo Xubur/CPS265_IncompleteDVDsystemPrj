@@ -15,7 +15,7 @@ void displayMenu();
 
 int main()
 {
-	
+
 	int choice;
 	CustomerType cust;
 	CustomerBTreeType custList;
@@ -40,13 +40,13 @@ int main()
 		exit(1);
 	}
 
-	createDVDList(dvdinfile, dvdList);                   
+	createDVDList(dvdinfile, dvdList);
 	createCustomerList(custinfile, custList);
-	
+
 	displayMenu();
 	cout << "Enter choice: ";
 	cin >> choice;
-	
+
 	cout << endl;
 
 	while (choice != 9)
@@ -86,11 +86,11 @@ int main()
 			else {
 				cout << "That DVD is not currently available." << endl;
 			}
-				cout << endl;
+			cout << endl;
 			break;
 		case 5:    //print only the titles of all dvds
 
-			
+
 			break;
 		case 6:   //print a list of all dvds -- Working
 			dvdList.inorderTraversal();
@@ -119,7 +119,7 @@ int main()
 		displayMenu();
 		cout << "Enter choice: ";
 		cin >> choice;
-		
+
 		cout << endl;
 	}//end while
 
