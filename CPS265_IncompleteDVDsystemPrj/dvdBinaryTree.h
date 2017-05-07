@@ -42,6 +42,10 @@ public:
 
 		searchDvdList(title, found, current);
 		if (found == true) {
+			if (current->info.getNoOfCopiesInStock() == 0)
+			{
+				cout << "Sorry! We're all out of " << title << endl;
+			}
 			return current->info.getNoOfCopiesInStock() > 0;
 		}
 		else
@@ -67,7 +71,7 @@ public:
 		bool found = false;
 
 		searchDvdList(title, found, current);
-		if (found && current->info.getNoOfCopiesInStock() > 0)
+		if (found && isDvdAvailable(title))
 		{
 			current->info.checkOut();
 		}
@@ -156,7 +160,12 @@ private:
 	void inorderTitle(nodeType<DvdType> *p)  const {
 		//This function prints the titles of all the DVDs
 		//in stock. 
-
+		if (p != nullptr)
+		{
+			inorderTitle(p->lLink);
+			cout << p->info.getTitle() << endl;
+			inorderTitle(p->rLink);
+		}
 	}
 };
 

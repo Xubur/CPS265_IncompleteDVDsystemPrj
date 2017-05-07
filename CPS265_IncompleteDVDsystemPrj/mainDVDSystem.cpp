@@ -75,9 +75,6 @@ int main()
 				dvdList.dvdCheckOut(dvdTitle);
 				custList.custRentDvd(custID, dvdTitle);
 			}
-			else {
-				cout << "That DVD is not avaiable." << endl;
-			}
 			cout << endl;
 			break;
 		case 3:    //check in a dvd -- Working
