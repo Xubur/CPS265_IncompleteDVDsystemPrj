@@ -118,9 +118,31 @@ private:
 		//true, otherwise false; the parameter current points  
 		//to the node containing the DVD.
 	{
-		found = search(current->info);
-		// do we actually need the title parameter if the dvd to search for is in the node "current"?????
-		
+		nodeType<DvdType> *indexNode;
+		found = false;
+
+		if (root == nullptr)
+			cout << "Cannot search an empty tree." << endl;
+		else
+		{
+			indexNode = root;
+
+			while (indexNode != nullptr && !found)
+			{
+				if (indexNode->info.checkTitle(title))
+				{
+					found = true;
+					current = indexNode;
+				}
+				else if (indexNode->info.getTitle() > title)
+					indexNode = indexNode->lLink;
+				else
+					indexNode = indexNode->rLink;
+			}//end while
+		}//end else
+
+		found = false;
+		current = indexNode;
 	}
 
 
