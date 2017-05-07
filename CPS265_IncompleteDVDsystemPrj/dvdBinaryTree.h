@@ -67,7 +67,7 @@ public:
 		nodeType<DvdType> *current;
 		bool found = false;
 		searchDvdList(title, found, current);
-		if (found && current->info.getNoOfCopiesInStock > 0)
+		if (found && current->info.getNoOfCopiesInStock() > 0)
 		{
 			current->info.checkOut();
 		}
