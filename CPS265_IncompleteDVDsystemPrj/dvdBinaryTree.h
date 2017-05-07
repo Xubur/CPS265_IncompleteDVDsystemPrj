@@ -142,7 +142,7 @@ private:
 		}//end else
 
 		found = false;
-		current = indexNode;
+		current = nullptr;
 	}
 
 
