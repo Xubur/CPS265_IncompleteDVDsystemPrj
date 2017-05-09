@@ -66,26 +66,44 @@ int main()
 			cout << endl;
 			break;
 		case 2:   //check out a dvd -- Working
-			cout << "Enter customer id: " << endl;
+			cout << "Enter customer id: ";
 			cin >> custID;
-			getline(cin, dummy);
-			cout << "Enter the title: ";
-			cin >> dvdTitle;
-			if (dvdList.isDvdAvailable(dvdTitle)) {
-				dvdList.dvdCheckOut(dvdTitle);
-				custList.custRentDvd(custID, dvdTitle);
+			if (custList.custSearchId(custID))
+			{
+				cout << "Enter the title: ";
+				cin >> dvdTitle;
+				if (custList.custRentDvd(custID, dvdTitle)) /// if we can add the dvd to the rented dvd tree...
+				{
+					if (dvdList.isDvdAvailable(dvdTitle)) {
+						dvdList.dvdCheckOut(dvdTitle);
+					}
+					cout << endl;
+				} else {
+					cout << "Sorry, you have already rented " << dvdTitle << "\n" << endl;
+				}
 			}
-			cout << endl;
+			else {												///custID not found...
+				cout << "Sorry, we couldn't find a customer with the id: " << custID << "\n" << endl;
+			}
 			break;
 		case 3:    //check in a dvd -- Working
-			cout << "Enter customer id: " << endl;
+			cout << "Enter customer id: ";
 			cin >> custID;
-			getline(cin, dummy);
-			cout << "Enter the title: ";
-			cin >> dvdTitle;
-			dvdList.dvdCheckIn(dvdTitle);
-			custList.custReturnDvd(custID, dvdTitle);
-			cout << endl;
+			if (custList.custSearchId(custID))
+			{
+				cout << "Enter the title: ";
+				cin >> dvdTitle;
+				if (custList.custReturnDvd(custID, dvdTitle))
+				{
+					dvdList.dvdCheckIn(dvdTitle);
+					cout << endl;
+				}
+				else
+					cout << "Sorry you have already returned " << dvdTitle << "\n" << endl;      /// Dvd not found in rented tree (already returned)
+			}
+			else { ///custID not found...
+				cout << "Sorry, we couldn't find a customer with the id: " << custID << "\n" << endl;
+			}
 			break;
 		case 4:    //check if the dvd is currently available -- Working
 			cout << "Enter the title: ";
@@ -113,7 +131,6 @@ int main()
 			cin >> custID;
 			getline(cin, dummy);
 			if (custList.custSearchId(custID)) {
-
 				custList.rentedDvdsInfo(custID);
 			}
 			else {
