@@ -12,6 +12,7 @@ void createDVDList(ifstream& infile,
 void createCustomerList(ifstream& infile,
 	CustomerBTreeType& custList);
 void displayMenu();
+bool isNumber(string);			/// My own fucntion to test if a string is numeric
 
 int main()
 {
@@ -96,7 +97,13 @@ int main()
      `.__,'(___)(___`.__.' `.__,'(___ ) (___)             `.__.' '.__.'   `.__.    
 )";
 			cout << "Enter customer id: ";
-			cin >> custID;
+			cin >> dummy;
+			while (!isNumber(dummy))
+			{
+				cout << "Please enter a numeric customer id: " << endl;
+				cin >> dummy;
+			}
+			custID = stoi(dummy);
 			if (custList.custSearchId(custID))
 			{
 				cout << "Enter the title: " << endl;
@@ -132,7 +139,13 @@ int main()
      `.__,'(___)(___`.__.' `.__,'(___ ) (___)            (___(___)(___)    
 )";
 			cout << "Enter customer id: ";
-			cin >> custID;
+			cin >> dummy;
+			while (!isNumber(dummy))
+			{
+				cout << "Please enter a numeric customer id: " << endl;
+				cin >> dummy;
+			}
+			custID = stoi(dummy);
 			if (custList.custSearchId(custID))
 			{
 				cout << "Enter the title: " << endl;
@@ -247,7 +260,13 @@ int main()
                                                                                                         
 )";
 			cout << "Enter customer id: " << endl;
-			cin >> custID;
+			cin >> dummy;
+			while (!isNumber(dummy))
+			{
+				cout << "Please enter a numeric customer id: " << endl;
+				cin >> dummy;
+			}
+			custID = stoi(dummy);
 			if (custList.custSearchId(custID))
 			{
 				custList.rentedDvdsInfo(custID);
@@ -366,10 +385,19 @@ void createDVDList(ifstream& infile,
 		tempDVD.setDvdInfo(title, star1, star2, producer, director, productionCo, stock);
 		dvdList.insert(tempDVD);
 	}
+}
 
-
-
-
+bool isNumber(string input)
+{
+	for (unsigned int i = 0; i < input.size(); i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			return false;
+		}
+		// Doesn't play nice with negative numbers. Sorry :(
+	}
+	return true;
 }
 
 
