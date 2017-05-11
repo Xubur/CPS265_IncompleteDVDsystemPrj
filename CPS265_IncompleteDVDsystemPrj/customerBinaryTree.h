@@ -85,7 +85,6 @@ public:
 			if (current->info.getNoOfRentals() > 0)
 			{
 				inorderRentedDvdInfo(current);
-				cout << endl;
 			}
 			else
 			{
