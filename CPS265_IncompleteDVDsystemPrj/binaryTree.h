@@ -229,7 +229,7 @@ void BinaryTree<elemType>::inorder
     if (p != nullptr)
     {
         inorder(p->lLink);
-        cout << p->info << " ";
+        cout << p->info << " " << endl;
         inorder(p->rLink);
     }
 }
