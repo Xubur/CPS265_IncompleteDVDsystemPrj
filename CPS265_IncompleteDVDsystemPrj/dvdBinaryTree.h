@@ -62,7 +62,10 @@ public:
 		bool found = false;
 
 		searchDvdList(title, found, current);
-		current->info.checkIn();
+		if (found)
+			current->info.checkIn();
+		else
+			cout << "Failed to find " << title << endl;
 	}
 	void dvdCheckOut(string title) {
 		//Function to check out a DVD, that is, rent a DVD.

@@ -1,7 +1,7 @@
- 
+
 #ifndef H_customerListType
 #define H_customerListType
- 
+
 #include <iostream>
 #include <string>
 #include "binarySearchTree.h"
@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class CustomerBTreeType:public BinarySearchTree<CustomerType>
+class CustomerBTreeType :public BinarySearchTree<CustomerType>
 {
 public:
 	bool custSearchId(int id) {          //improvement still needed
@@ -19,26 +19,36 @@ public:
 		searchCust(id, found, current);
 		return found;
 
-		}
-	
+	}
+
 	bool custReturnDvd(int id, string title) {
 		nodeType<CustomerType> *current;
 		bool found = false;
 
-		if (searchCust(id, found, current)) {
-			current->info.returnDvd(title);
+		if (searchCust(id, found, current)) {				// Validate Customer ID
+			if (current->info.returnDvd(title))				// If returnDvd is successful (dvd exists and was returned)
+			{
+				return true;
+			}
 		}
-		return found;
+		return false;
 
-	   }
+
+	}
 	bool custRentDvd(int id, string title) {
 		nodeType<CustomerType> *current;
 		bool found = false;
 
 		if (searchCust(id, found, current)) {
-			current->info.rentDvd(title);
+			if (current->info.rentDvd(title))
+				return true;
+			else
+				cout << "Failed to rent dvd. See message above." << endl;
 		}
-		return found;
+		else {
+			cout << "Customer ID not found." << endl;
+		}
+		return false;
 	}
 	int  custGetNoOfRentals(int id) {
 		nodeType<CustomerType> *current;
@@ -105,5 +115,5 @@ private:
 
 
 };
- 
+
 #endif

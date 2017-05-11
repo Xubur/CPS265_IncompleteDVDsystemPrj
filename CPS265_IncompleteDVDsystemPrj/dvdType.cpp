@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "DvdType.h"
+#include "dvdType.h"
 
 using namespace std;
 
