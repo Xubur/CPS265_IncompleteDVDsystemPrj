@@ -27,6 +27,8 @@ public:
 		nodeType<DvdType> *current;
 		bool found = false;
 		searchDvdList(title, found, current);
+		if (!found)
+			cout << "Sorry we dont carry " << title << endl;
 		return found;
 	}
 

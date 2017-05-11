@@ -12,64 +12,83 @@ using namespace std;
 class CustomerBTreeType :public BinarySearchTree<CustomerType>
 {
 public:
-	bool custSearchId(int id) {          //improvement still needed
+	bool custSearchId(int id)
+	{          //improvement still needed
 		nodeType<CustomerType> *current;
 		bool found = false;
 
 		searchCust(id, found, current);
+		if (!found)
+			cout << "We couldn't find a customer with the id " << id << endl;
 		return found;
 
 	}
 
-	bool custReturnDvd(int id, string title) {
+	bool custReturnDvd(int id, string title)
+	{
 		nodeType<CustomerType> *current;
 		bool found = false;
 
-		if (searchCust(id, found, current)) {				// Validate Customer ID
+		if (searchCust(id, found, current))
+		{				// Validate Customer ID
 			if (current->info.returnDvd(title))				// If returnDvd is successful (dvd exists and was returned)
 			{
 				return true;
+			}
+			else
+			{
+				cout << "Failed to return " << title << ". See the above message." << endl;
 			}
 		}
 		return false;
 
 
 	}
-	bool custRentDvd(int id, string title) {
+	bool custRentDvd(int id, string title)
+	{
 		nodeType<CustomerType> *current;
 		bool found = false;
 
-		if (searchCust(id, found, current)) {
+		if (searchCust(id, found, current))
+		{
 			if (current->info.rentDvd(title))
 				return true;
 			else
 				cout << "Failed to rent dvd. See message above." << endl;
 		}
-		else {
+		else
+		{
 			cout << "Customer ID not found." << endl;
 		}
 		return false;
 	}
-	int  custGetNoOfRentals(int id) {
+	int  custGetNoOfRentals(int id)
+	{
 		nodeType<CustomerType> *current;
 		bool found = false;
 		int rentals = 0;
 
-		if (searchCust(id, found, current)) {
+		if (searchCust(id, found, current))
+		{
 			rentals = current->info.getNoOfRentals();
 		} return rentals;
 	}
 
-	void rentedDvdsInfo(int id) {
+	void rentedDvdsInfo(int id)
+	{
 		nodeType<CustomerType> *current;
 		bool found = false;
 
 
-		if (searchCust(id, found, current)) {
-			if (current->info.getNoOfRentals() > 0) {
+		if (searchCust(id, found, current))
+		{
+			if (current->info.getNoOfRentals() > 0)
+			{
 				inorderRentedDvdInfo(current);
+				cout << endl;
 			}
-			else {
+			else
+			{
 				cout << "No current rentals." << endl;
 			}
 		}
@@ -78,7 +97,8 @@ public:
 
 private:
 	bool searchCust(int id, bool& found,
-		nodeType<CustomerType>* &current) {
+		nodeType<CustomerType>* &current)
+	{
 		nodeType<CustomerType> *indexNode;
 		found = false;
 
@@ -106,7 +126,8 @@ private:
 		return found;
 	}
 
-	void inorderRentedDvdInfo(nodeType<CustomerType>* p) {
+	void inorderRentedDvdInfo(nodeType<CustomerType>* p)
+	{
 		// Function to do an inorder traversal and print
 		// rented DVD information
 		p->info.printRentedDvd();

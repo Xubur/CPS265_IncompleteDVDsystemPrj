@@ -74,16 +74,10 @@ int main()
 			cout << "Enter the title: " << endl;
 			cin.ignore();
 			getline(cin, dvdTitle);
-			cout << "We got: " << dvdTitle << endl;
 			if (dvdList.dvdSearch(dvdTitle))
 			{
-				cout << "That DVD is carried." << endl;
+				cout << dvdTitle << " is carried." << endl;
 			}
-			else
-			{
-				cout << "That DVD is not carried." << endl;
-			}
-			cout << endl;
 			break;
 		case 2:   //check out a dvd -- Working
 			system("cls");
@@ -115,18 +109,9 @@ int main()
 						if (custList.custRentDvd(custID, dvdTitle)) /// if adding the dvd was successful
 						{
 							dvdList.dvdCheckOut(dvdTitle);
-							cout << endl;
 						}
 					}
-					else
-					{
-						cout << "Sorry, you have already rented " << dvdTitle << "\n" << endl;
-					}
 				}
-			}
-			else
-			{												///custID not found...
-				cout << "Sorry, we couldn't find a customer with the id: " << custID << "\n" << endl;
 			}
 			break;
 		case 3:    //check in a dvd -- Working
@@ -158,21 +143,8 @@ int main()
 					if (custList.custReturnDvd(custID, dvdTitle))
 					{
 						dvdList.dvdCheckIn(dvdTitle);
-						cout << endl;
-					}
-					else
-					{
-						cout << "Sorry you have already returned " << dvdTitle << "\n" << endl;      /// Dvd not found in rented tree (already returned)
 					}
 				}
-				else				/// Dvd doesn't exist in our list of dvds
-				{
-					cout << "Sorry we don't carry that dvd." << endl;
-				}
-			}
-			else
-			{ ///custID not found...
-				cout << "Sorry, we couldn't find a customer with the id: " << custID << "\n" << endl;
 			}
 			break;
 		case 4:    //check if the dvd is currently available -- Working
@@ -200,7 +172,6 @@ int main()
 			{
 				cout << "That DVD is currently available." << endl;
 			}
-			cout << endl;
 			break;
 		case 5:    //print only the titles of all dvds -- Working
 			system("cls");
@@ -257,7 +228,6 @@ int main()
                                                                                                          
 )";
 			custList.inorderTraversal();
-			cout << endl;
 			break;
 		case 8:  //print a list of the dvds rented by a customer -- Working
 			system("cls");
@@ -281,12 +251,8 @@ int main()
 			if (custList.custSearchId(custID))
 			{
 				custList.rentedDvdsInfo(custID);
+
 			}
-			else
-			{
-				cout << "Customer not found." << endl;
-			}
-			cout << endl;
 			break;
 		default:
 			system("cls");
@@ -309,7 +275,6 @@ int main()
 		displayMenu();
 		cout << "Enter choice: ";
 		cin >> choice;
-		cout << endl;
 	}//end while
 
 	return 0;
